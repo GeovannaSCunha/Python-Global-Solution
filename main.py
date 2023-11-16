@@ -3,7 +3,6 @@ import json
 from funcoes import *
 
 continua = "sim"
-msgFinal = []
 
 try:
     print("\n")
@@ -81,25 +80,11 @@ try:
         else:
             raise ValueError("Por favor, digite uma opção válida.")
         
-        continua = input("\nVocê deseja fazer uma nova ação? (Digite 'sim' ou 'não') ")
+        continua = input("\nVocê deseja fazer uma nova ação? (Digite 'sim' ou 'não'): ")
         if continua.lower() != "sim" and continua.lower() != "não":
             raise ValueError("Por favor, digite sim ou não.")
 
-    # Exibe as mensagens finais: informações do cliente, resumo da operação e agradecimento
-    with open(f'usuarios/{email}.json', 'w', encoding='utf-8') as arquivo:
-        json.dump(infoCliente, arquivo)
 
-    print("*" * 70)
-    print("INFORMAÇÕES DO CLIENTE:")
-    print(f"Nome: {infoCliente['nome']}")
-    print(f"E-mail: {infoCliente['email']}")
-    
-    # Exibe os resultados dos exames
-    resultados_exames = infoCliente.get("resultados_exames")
-    if resultados_exames:
-        print("\n--- Resultados dos Exames ---")
-        for chave, valor in resultados_exames.items():
-            print(f"{chave}: {valor}")
     
     print("*" * 70)
     print("\nObrigada por utilizar nossos serviços.")
