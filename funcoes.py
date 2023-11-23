@@ -76,6 +76,7 @@ def verificar_resultados(infoCliente):
 
 def avalia_resultados(resultados):
     hemacias = resultados.get("hemacias", 0)
+    hemoglobina = resultados.get("hemoglobina", 0)
     hematocrito = resultados.get("hematocrito", 0)
     vcm = resultados.get("vcm", 0)
     hcm = resultados.get("hcm", 0)
@@ -88,6 +89,9 @@ def avalia_resultados(resultados):
 
     if hemacias < 4.5 or hemacias > 6.5:
         mensagens_fora_do_normal.append("hemácias")
+
+    if hemoglobina < 13 or hemoglobina > 16:
+        mensagens_fora_do_normal.append("hemoglobina")
 
     if hematocrito < 38 or hematocrito > 54:
         mensagens_fora_do_normal.append("hematócrito")
